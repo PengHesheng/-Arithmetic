@@ -4,6 +4,7 @@ import java.util.PriorityQueue;
 import java.util.Queue;
 
 /**
+ * 宽度优先遍历
  * @author 14512 on 2018/9/13.
  */
 public class BFS {
@@ -37,7 +38,7 @@ public class BFS {
      * 四个方向上的移动量
      */
     private static int[] dx = new int[]{1, 0, -1, 0};
-    private static int[] dy = new int[]{0, -1, 0, -1};
+    private static int[] dy = new int[]{0, 1, 0, -1};
     private static void solve() {
         N = 10;
         M = 10;
@@ -95,7 +96,9 @@ public class BFS {
                 if (0 <= nx && nx < N && 0 <= ny && ny < M
                         && maze[nx][ny] != '#'
                         && d[nx][ny] == INF) {
+                    //可以访问，入队
                     queue.add(new Point(nx, ny));
+                    //该位置的距离为point的距离+1
                     d[nx][ny] = d[point.x][point.y] + 1;
                 }
             }
@@ -103,16 +106,21 @@ public class BFS {
         return d[end.x][end.y];
     }
 
-    private static class Point {
+    private static class Point implements Comparable {
         int x;
         int y;
-        public Point(int x, int y) {
+        Point(int x, int y) {
             this.x = x;
             this.y = y;
         }
 
-        public boolean equals(Point that) {
+        boolean equals(Point that) {
             return this.x == that.x && this.y == that.y;
+        }
+
+        @Override
+        public int compareTo(Object o) {
+            return 0;
         }
     }
 }
