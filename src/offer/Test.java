@@ -1,17 +1,82 @@
 package offer;
 
-import java.util.HashMap;
-import java.util.Hashtable;
-import java.util.LinkedHashMap;
-import java.util.Vector;
-import java.util.concurrent.ConcurrentHashMap;
-
 /**
  * @author 14512 on 2018/11/27.
  */
 public class Test {
     public static void main(String[] argc) {
-        System.out.println(question3(new int[]{2, 3, 1, 0, 2, 5, 3}));
+
+//        int[][]ba = new int[3][6];
+//        System.out.println(ba.length +"  "+ ba[0].length);
+//        System.out.println(question3(new int[]{2, 3, 1, 0, 2, 5, 3}));
+
+//        System.out.println(NumberOf1(-3));
+//        ListNode node5 = new ListNode(5, null);
+        ListNode node4 = new ListNode(4, null);
+        ListNode node3 = new ListNode(3, node4);
+        ListNode node2 = new ListNode(2, node3);
+        ListNode node1 = new ListNode(1, node2);
+        System.out.println(ReverseList(node1).val);
+    }
+
+    static class ListNode {
+        int val;
+        ListNode next;
+        ListNode(int value, ListNode next) {
+            this.val = value;
+            this.next = next;
+        }
+    }
+
+    public static ListNode ReverseList(ListNode head) {
+        if (head == null) {
+            return null;
+        }
+
+        ListNode node1 = head;
+        ListNode node2 = node1.next;
+        ListNode node3;
+
+        node1.next = null;
+        while(node2 != null) {
+            node3 = node2.next;
+            node2.next = node1;
+            node1 = node2;
+            node2 = node3;
+        }
+
+        return node1;
+    }
+
+    public static int NumberOf1(int n) {
+        int count = 0;
+        int target = n;
+        int flag = 1;
+        while(target != 0) {
+            count++;
+            target = (target - 1) & target;
+        }
+        return count;
+    }
+
+    public static int Fibonacci(int n) {
+        int f0 = 0;
+        int f1 = 1;
+
+        if(n <= 0) {
+            return f0;
+        }
+
+        if(n == 1) {
+            return f1;
+        }
+
+        while(n > 1) {
+            f1 += f0;
+            f0 = f1;
+            n--;
+        }
+        return f1;
     }
 
     /**

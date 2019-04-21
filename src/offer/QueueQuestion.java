@@ -1,13 +1,12 @@
 package offer;
 
 import java.util.ArrayDeque;
-import java.util.PriorityQueue;
 import java.util.Queue;
 
 /**
  * @author 14512 on 2018/12/22.
  */
-public class QuequeQuestion {
+public class QueueQuestion {
 
     public static void main(String[] argv) {
         question1();

@@ -117,6 +117,34 @@ public class StringQuestion {
         System.out.println(result);
     }
 
+    private static String replaceSpace(StringBuffer str) {
+        if (str == null || str.length() == 0) {
+            throw new RuntimeException("null");
+        }
+
+        String replaceStr = "%20";
+        int spaceNum = 0;
+        for (char c : str.toString().toCharArray()) {
+            if (c == ' ') {
+                spaceNum++;
+            }
+        }
+        int strLast = str.length() - 1;
+        int lastIndex = spaceNum * replaceStr.length() + strLast - spaceNum;
+        str.setLength(lastIndex+1);
+        for (int i  = lastIndex, j = strLast; j >= 0; j--) {
+            char c = str.charAt(j);
+            if (c == ' ') {
+                str.replace(i - replaceStr.length() +1, i+1, replaceStr);
+                i -= replaceStr.length();
+            } else {
+                str.setCharAt(i, c);
+                i--;
+            }
+        }
+        return str.toString();
+    }
+
     /**
      * 给定一个字符串str，和一个整数i，i表示str中的位置，将str[0..i]移到右侧，str[i+1..N-1]移到左侧
      * 例str="ABCDE",i=2,调整为"DEABC"
