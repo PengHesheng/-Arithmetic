@@ -1,5 +1,7 @@
 package offer;
 
+import java.util.ArrayList;
+
 /**
  * @author 14512 on 2018/11/27.
  */
@@ -12,11 +14,43 @@ public class Test {
 
 //        System.out.println(NumberOf1(-3));
 //        ListNode node5 = new ListNode(5, null);
-        ListNode node4 = new ListNode(4, null);
-        ListNode node3 = new ListNode(3, node4);
-        ListNode node2 = new ListNode(2, node3);
-        ListNode node1 = new ListNode(1, node2);
-        System.out.println(ReverseList(node1).val);
+//        ListNode node4 = new ListNode(4, null);
+//        ListNode node3 = new ListNode(3, node4);
+//        ListNode node2 = new ListNode(2, node3);
+//        ListNode node1 = new ListNode(1, node2);
+//        System.out.println(ReverseList(node1).val);
+        System.out.println(GetLeastNumbers_Solution(new int[]{4,5,1,6,2,7,3,8}, 4));
+    }
+
+    public static ArrayList<Integer> GetLeastNumbers_Solution(int [] input, int k) {
+        ArrayList<Integer> result = new ArrayList<>();
+        for (int i = 0; i < input.length; i++) {
+            addToList(result, input[i], k);
+        }
+        ArrayList<Integer> res = new ArrayList<>(k);
+        for (int i = 0; i < k; i++) {
+            res.add(result.get(i));
+        }
+        return res;
+    }
+
+    public static void addToList(ArrayList<Integer> list, int value, int k) {
+        if (list.size() == 0) {
+            list.add(value);
+            return;
+        }
+        int border = list.size();
+        if (border > k) {
+            border = k;
+        }
+        for (int i = 0; i < border; i++) {
+            //升序
+            if (list.get(i) >= value) {
+                list.add(i, value);
+                return;
+            }
+        }
+        list.add(value);
     }
 
     static class ListNode {
