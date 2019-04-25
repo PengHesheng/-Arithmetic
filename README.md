@@ -51,7 +51,7 @@
     5.[内部类形式](./src/designmodel/singleton/Singleton5.java)  
     6.[枚举单例](./src/designmodel/singleton/Singleton.java)  
 
-- [Builder模式](./src/designmodel/builder)  
+- [Builder模式](./src/designmodel/builder/WindowsBuilder.java)  
     定义：将一个复杂对象的构建与它的表示分离，使得同样的构建过程可以创建不同的表示  
     使用场景：  
     > （1）相同的方法，不同的执行顺序，产生不同的时间结果  
@@ -59,21 +59,21 @@
     > （3）产品类非常复杂，或者产品类中的调用顺序不同产生了不同的作用  
     > （4）当初始化一个对象特别复杂，如参数多，且很多参数都具有默认值时
 
-- [原型模式](./src/designmodel/prototype)  
+- [原型模式](./src/designmodel/prototype/WordDocument.java)  
     定义：用原型示例指定创建对象的种类，并通过拷贝这些原型创建新的对象  
     使用场景：  
     > （1）类初始化需要消化非常多的资源，可以通过原型拷贝减少这些消耗   
     > （2）通过new产生一个对象需要繁琐的数据准备或访问权限  
     > （3）一个需要提供给其他对象访问，而且各个调用者可能都需要修改，可以通过拷贝对象供其使用（保护性拷贝）  
 
-- [工厂模式](./src/designmodel/factory)  
+- [工厂模式](./src/designmodel/factory/FactoryClient.java)  
     定义：定义一个用于创建对象的接口，让子类决定实例化哪个类  
     使用场景：任何需要生成复杂对象的地方  
 
-- [抽象工厂模式](./src/designmodel/factory/abstractfactory)  
+- [抽象工厂模式](./src/designmodel/factory/abstractfactory/AbstrctFactory.java)  
     定义：为创建一组相关或者是相互依赖的对象提供一个接口，而不需要指定它们的具体类
 
-- [策略模式](./src/designmodel/strategy)  
+- [策略模式](./src/designmodel/strategy/PriceCalculator.java)  
     定义：策略模式定义了一些的算法，并将每一个算法封装起来，而且使它们还可以相互替换。让算法独立于使用它的客户而独立变化  
     使用场景：  
     > （1）针对同一类型问题的多种处理方式，仅仅是具体行为有差别  
@@ -94,7 +94,7 @@
     > （2）在请求处理者不明确的情况下向多个对象中的一个提交一个请求  
     > （3）需要动态指定一组对象处理请求  
     
-- [解释器模式](./src/designmodel/interoreter)  
+- [解释器模式](./src/designmodel/interoreter/Client.java)  
     定义：给定一个语言，定义它的文法的一种表示，并定义一个解释器，该解释器使用该表示来届师语言中的句子  
     使用场景：  
     > （1）如果某个简单的语言需要解释执行而且可以将该语言中的语句表示为一个抽象语法树时可以考虑使用  
