@@ -19,7 +19,44 @@ public class Test {
 //        ListNode node2 = new ListNode(2, node3);
 //        ListNode node1 = new ListNode(1, node2);
 //        System.out.println(ReverseList(node1).val);
-        System.out.println(GetLeastNumbers_Solution(new int[]{4,5,1,6,2,7,3,8}, 4));
+//        System.out.println(GetLeastNumbers_Solution(new int[]{4,5,1,6,2,7,3,8}, 4));
+        System.out.println(GetUglyNumber_Solution(2));
+    }
+
+    public static int GetUglyNumber_Solution(int index) {
+        if (index <= 0) {
+            return 0;
+        }
+        int[] result = new int[index];
+        result[0] = 1;
+        int count = 0;
+        //定义三个队列指针
+        int p2 = 0, p3 = 0, p5 = 0;
+        int tmp = 0;
+        while (count < index - 1) {
+            //选出*2、*3、*5后生成的最小的丑数
+            tmp = min(result[p2] * 2, min(result[p3] * 3, result[p5] * 5));
+            //判断是由2、3、5某个来生成的丑数 进行指针的移动
+            if (tmp == result[p2] * 2) {
+                p2++;
+            }
+
+            if (tmp == result[p3] * 3) {
+                p3++;
+            }
+
+            if (tmp == result[p5] * 5) {
+                p5++;
+            }
+            //将最小的丑数放到result数组中
+            count++;
+            result[count] = tmp;
+        }
+        return result[index - 1];
+    }
+
+    public static int min(int a, int b) {
+        return (a > b) ? b : a;
     }
 
     public static ArrayList<Integer> GetLeastNumbers_Solution(int [] input, int k) {
