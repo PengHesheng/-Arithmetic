@@ -1,13 +1,17 @@
 package offer;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  * @author 14512 on 2018/11/27.
  */
 public class Test {
     public static void main(String[] argc) {
-
+        HashMap<Character, Integer> map;
+        char c = 'c';
+        char a = 'a';
+        System.out.println(a == c);
 //        int[][]ba = new int[3][6];
 //        System.out.println(ba.length +"  "+ ba[0].length);
 //        System.out.println(question3(new int[]{2, 3, 1, 0, 2, 5, 3}));
@@ -20,10 +24,14 @@ public class Test {
 //        ListNode node1 = new ListNode(1, node2);
 //        System.out.println(ReverseList(node1).val);
 //        System.out.println(GetLeastNumbers_Solution(new int[]{4,5,1,6,2,7,3,8}, 4));
+
         System.out.println(GetUglyNumber_Solution(2));
     }
 
+
+
     public static int GetUglyNumber_Solution(int index) {
+
         if (index <= 0) {
             return 0;
         }
