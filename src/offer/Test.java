@@ -11,6 +11,8 @@ public class Test {
         HashMap<Character, Integer> map;
         char c = 'c';
         char a = 'a';
+        String s = " ";
+        System.out.println(s.isEmpty());
         System.out.println(a == c);
 //        int[][]ba = new int[3][6];
 //        System.out.println(ba.length +"  "+ ba[0].length);

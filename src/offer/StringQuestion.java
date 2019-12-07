@@ -1,6 +1,8 @@
 package offer;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Stack;
 
 /**
  * @author 14512 on 2018/10/29.
@@ -9,12 +11,13 @@ public class StringQuestion {
 
     public static void main(String[] args) {
         //System.out.println(question1("1234", "2341"));
+        question2(" ");
         //question2("pig loves dog");
         //question3("ABCDE", 2);
 //        question4("ba", "b");
 //        question5(" abd ed f");
 //        question6("((())");
-        question7("abcd");
+//        question7("abcd");
     }
 
     /**
